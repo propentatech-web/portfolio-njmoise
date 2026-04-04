@@ -1,0 +1,39 @@
+.competence {
+  margin-left: 15%;
+  margin-right: 15%;
+  color: white;
+  min-height: 70vh;
+}
+
+.savoirfaire p {
+  color: #999;
+}
+.savoirfaire {
+  display: grid;
+  gap: 10px;
+  border-radius: 5px;
+  border: 1px solid #00ab67;
+  padding: 5%;
+  height: 180px;
+}
+.mescompetence:hover .savoirfaire:not(:hover) {
+  border: none;
+  transition: 0.5;
+}
+.savoirfaire:hover {
+  box-shadow: 0 0 20px #00ab67;
+}
+.mescompetence {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  gap: 10px;
+}
+svg {
+  height: 30px;
+  width: 40px;
+}
+@media (max-width: 900px) {
+  .mescompetence {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

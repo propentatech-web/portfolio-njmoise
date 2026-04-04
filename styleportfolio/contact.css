@@ -1,0 +1,84 @@
+:root {
+  --bg-color: #0f0f0f;
+  --hero-color: #2a2a2a;
+  --primary-color: #00ab67;
+  --blue-color: rgba(15, 121, 219, 0.884);
+  --red-color: rgb(252, 13, 13);
+  --txt-color: #ffffff;
+  --gray: #999;
+}
+* {
+  padding: 0;
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+#contact {
+  background-color: #2a2a2a;
+}
+.contact {
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  color: white;
+  /* padding: 10px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+}
+form {
+  width: 85%;
+}
+input {
+  padding-right: 5px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  width: 100%;
+  height: 30px;
+}
+textarea {
+  background-color: #ffffff;
+  border-radius: 5px;
+  width: 100%;
+}
+.travaillon {
+  font-size: 2rem;
+  color: white;
+}
+.ensemble {
+  font-size: 1.5rem;
+}
+.textcontact {
+  max-width: 50%;
+}
+.formulaire {
+  max-width: 50%;
+}
+
+svg {
+  color: #00ab67;
+}
+span {
+  min-height: 60%;
+}
+footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  align-items: center;
+  padding: 15px;
+}
+.rien {
+  height: 44px;
+}

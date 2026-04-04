@@ -1,0 +1,101 @@
+:root {
+  --bg-color: #0f0f0f;
+  --hero-color: #2a2a2a;
+  --primary-color: #00ab67;
+  --blue-color: rgba(15, 121, 219, 0.884);
+  --red-color: rgb(252, 13, 13);
+  --txt-color: #ffffff;
+  --gray: #999;
+}
+* {
+  padding: 0;
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+#apropos {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.apropos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  min-height: 70vh;
+}
+.textapropos {
+  margin-right: 15%;
+}
+.imageapropos {
+  margin-left: 15%;
+  min-width: 200px;
+  max-height: 70vh;
+  padding: 10px;
+  text-align: right;
+}
+.imageapropos img {
+  /* margin: 10px; */
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 20px;
+}
+.imageapropos :hover {
+  transform: scale(1.5);
+  position: -50px;
+}
+.listedecote {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  gap: 10px;
+}
+.cellule {
+  padding: 2%;
+  border-radius: 10px;
+  background-color: #00ab67;
+  color: #0f0f0f;
+}
+.listedecote:hover div:not(:hover) {
+  transform: scale(0.8);
+  transition: 0.3s;
+}
+.cellule:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: 0.4s;
+}
+@media (max-width: 900px) {
+  .textapropos {
+    margin-right: 0;
+  }
+  .imageapropos {
+    margin-top: 20px;
+    margin-left: 0;
+  }
+  .imageapropos img {
+    max-height: 300px;
+  }
+  .apropos {
+    margin-left: 15%;
+    margin-right: 15%;
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+  .listedecote {
+    display: block;
+    gap: 20px;
+  }
+  .cellule {
+    margin-top: 10px;
+  }
+}
