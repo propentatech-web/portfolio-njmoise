@@ -323,7 +323,7 @@ button {
   display: grid;
   gap: 10px;
   border-radius: 5px;
-  border: 1px solid #00ab67;
+
   padding: 5%;
   height: 180px;
 }
@@ -333,6 +333,7 @@ button {
 }
 .savoirfaire:hover {
   box-shadow: 0 0 20px #00ab67;
+  border: 1px solid #00ab67;
 }
 .mescompetence {
   display: grid;

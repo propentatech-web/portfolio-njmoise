@@ -46,7 +46,7 @@ gsap.from(selection[0].chars, {
     start: "top 70%",
     end: "top 30%",
     // markers: true,
-    scrub: true,
+    scrub: 3,
   },
 });
 // effet de smooth  ,le smooth ne fonctione pas
@@ -77,3 +77,36 @@ gsap.ticker.lagSmoothing(0);
 //     // scrub: true,
 //   },
 // });
+// faire apparaitre progressivement mes competences
+gsap.from(" .ligne1 ", {
+  scrollTrigger: {
+    trigger: ".mescompetence ",
+    toggleAction: "restart none none reset",
+    // markers: true,
+    start: "top 60%",
+    end: "bottom 60%",
+    scrub: 1,
+  },
+  y: 100,
+  opacity: 0,
+  scale: 0,
+  ease: "elastic.out(0.4,0.15)",
+  duration: 1.5,
+  stagger: 0.3,
+});
+gsap.from(".ligne2", {
+  scrollTrigger: {
+    trigger: ".mescompetence ",
+    toggleAction: "restart none none reset",
+    // markers: true,
+    start: "top 60%",
+    end: "bottom 60%",
+    scrub: 1,
+  },
+  y: 100,
+  opacity: 0,
+  scale: 0,
+  ease: "elastic.out(0.4,0.15)",
+  duration: 1.5,
+  stagger: 0.1,
+});
