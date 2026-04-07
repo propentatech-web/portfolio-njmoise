@@ -52,6 +52,9 @@ header {
   gap: 10px;
   background-color: transparent;
 }
+.navbar:hover a:not(:hover) {
+  color: #686767;
+}
 .logo {
   margin-left: 50px;
   display: flex;
@@ -341,6 +344,24 @@ svg {
   width: 40px;
 }
 @media (max-width: 900px) {
+  /* pour creer une animation qui fait apparaitre des elements */
+  @keyframes reveal {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  /* la class pour faire apparaitre des animations */
+  .apparaitre {
+    animation: reveal linear;
+    animation-timeline: view();
+    animation-range-start: cover 0%;
+    animation-range-end: contain 50%;
+  }
   .mescompetence {
     grid-template-columns: repeat(1, 1fr);
   }
