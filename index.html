@@ -250,14 +250,18 @@
                 <a href="tel:237673166641"> <button type="button">Contactez-moi</button></a>
             </div>    
             <div class="formulaire">
-                    <form  action="">
+                    <form action="https://formspree.io/f/xzdkqygb"
+  method="POST">
                         <!-- nom de l'utilisateur -->
-                        <label for="name">NOM COMPLET</label><br><input type="text" name="name" id="name" placeholder="Votre nom complet" required><br></br>
+                        <label for="name">NOM COMPLET</label><br><input type="text" name="name" id="nom" placeholder="Votre nom complet" required><br></br>
                         <!-- adresse email de l'utilisateur -->
-                        <label for="adresse">ADRESSE EMAIL</label><br><input type="email" name="adresse" id="adresse" placeholder="votre@email.com" required><br><br>
+                        <label for="adresse">ADRESSE EMAIL</label><br><input type="email" name="email" id="adresse" placeholder="votre@email.com" required><br><br>
+                        <!-- numero de l'utilisateur  -->
+                        <label for="number">TELEPHONE</label><br>
+                        <input type="tel" name="tel" id="number" placeholder="numéro de telephone" minlength="7" maxlength="15"><br><br>
                         <!-- message de l'utilisateur -->
                         <label for="sms">MESSAGE</label><br>
-                        <textarea name="sms" id="sms" placeholder="Bonjour NJ je voulais..." rows="5" cols="50"></textarea><br><br>
+                        <textarea name="message" id="sms" placeholder="Bonjour NJ je voulais..." rows="5" cols="50"></textarea><br>
                         <!-- bouton de souscription -->
                         <button type="submit"> Envoyer <span>&#128488;</span></button><br><br>    
                     </form>

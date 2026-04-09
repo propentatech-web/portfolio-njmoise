@@ -396,6 +396,7 @@ textarea {
   border-radius: 5px;
   width: 100%;
   border-style: none;
+  color: #999;
 }
 input {
   height: 30px;
