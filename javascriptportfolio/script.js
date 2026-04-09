@@ -12,6 +12,7 @@ menuburger.addEventListener("click", () => {
   sorti.classList.toggle("none");
   entrer.classList.toggle("none");
 });
+
 // pour un evenement de song sur les bouton mais sa n'a pas marche
 // const btns = document.querySelectorAll("button");
 // function ring(nomfichier) {
@@ -27,20 +28,57 @@ menuburger.addEventListener("click", () => {
 //   });
 // });
 // pour faire apparaitre progresivement le text de description
+
+const mm = gsap.matchMedia();
+mm.add("(min-width:600px)", () => {
+  gsap.from(" .ligne1 ", {
+    scrollTrigger: {
+      trigger: ".mescompetence ",
+      toggleAction: "restart none none reset",
+      // markers: true,
+      start: "top 60%",
+      end: "bottom 60%",
+      scrub: 1,
+    },
+    y: 100,
+    opacity: 0,
+    scale: 0,
+    ease: "elastic.out(0.4,0.15)",
+    duration: 1.5,
+    stagger: 0.3,
+  });
+  gsap.from(".ligne2", {
+    scrollTrigger: {
+      trigger: ".mescompetence ",
+      toggleAction: "restart none none reset",
+      // markers: true,
+      start: "top 60%",
+      end: "bottom 60%",
+      scrub: 1,
+    },
+    y: 100,
+    opacity: 0,
+    scale: 0,
+    ease: "elastic.out(0.4,0.15)",
+    duration: 1.5,
+    stagger: 0.1,
+  });
+});
+
 let selection = Splitting();
 gsap.registerPlugin(ScrollTrigger);
 
 gsap.from(selection[0].chars, {
-  x: 100,
+  x: 40,
   // scaleX: 1.4,
   // y: 50,
 
   rotation: 180,
   color: "rgb(13,13,13)",
-  stagger: 0.1,
+  stagger: 1,
   opacity: 0,
   ease: "power3.out",
-  duration: 0.5,
+  duration: 1,
   scrollTrigger: {
     trigger: ".text-reveal",
     start: "top 70%",
@@ -78,35 +116,23 @@ gsap.ticker.lagSmoothing(0);
 //   },
 // });
 // faire apparaitre progressivement mes competences
-gsap.from(" .ligne1 ", {
-  scrollTrigger: {
-    trigger: ".mescompetence ",
-    toggleAction: "restart none none reset",
-    // markers: true,
-    start: "top 60%",
-    end: "bottom 60%",
-    scrub: 1,
-  },
-  y: 100,
-  opacity: 0,
-  scale: 0,
-  ease: "elastic.out(0.4,0.15)",
-  duration: 1.5,
-  stagger: 0.3,
+
+const linkmenu = document.querySelectorAll(".linkmenu");
+linkmenu.forEach((element) => {
+  element.addEventListener("click", () => {
+    navlinks.classList.toggle("mobilemenu");
+    sorti.classList.toggle("none");
+    entrer.classList.toggle("none");
+  });
 });
-gsap.from(".ligne2", {
-  scrollTrigger: {
-    trigger: ".mescompetence ",
-    toggleAction: "restart none none reset",
-    // markers: true,
-    start: "top 60%",
-    end: "bottom 60%",
-    scrub: 1,
-  },
-  y: 100,
-  opacity: 0,
-  scale: 0,
-  ease: "elastic.out(0.4,0.15)",
-  duration: 1.5,
-  stagger: 0.1,
-});
+
+const text = "Je Suis Developper Front-End";
+let i = 0;
+function typeWriter() {
+  if (i < text.length) {
+    document.querySelector(".title-reveal").textContent += text[i];
+    i++;
+    setTimeout(typeWriter, 150);
+  }
+}
+typeWriter();

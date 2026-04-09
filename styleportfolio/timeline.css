@@ -1,0 +1,149 @@
+.timeline-section {
+  /* On limite la largeur totale pour que ça ne s'étire pas trop sur grand écran */
+  max-width: 800px;
+  /* 50px d'espace en haut/bas, 'auto' centre la section horizontalement */
+  margin: 50px auto;
+  /* Espace intérieur pour éviter que le contenu touche les bords sur mobile */
+  padding: 20px;
+}
+
+.timeline-title {
+  text-align: center; /* Centre le texte */
+  color: #666; /* Gris moyen */
+  font-size: 1.2rem;
+  margin-bottom: 40px; /* Pousse la timeline vers le bas pour l'aérer */
+  text-transform: uppercase; /* Met tout le texte en majuscules */
+  letter-spacing: 1px; /* Espace un peu les lettres pour un effet plus chic */
+}
+
+.timeline {
+  /* TRÈS IMPORTANT : Définit ce conteneur comme "référentiel" pour ses enfants positionnés en absolu.
+     Sans ça, la ligne (::after) se positionnerait par rapport à toute la page ! */
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto; /* Centre la timeline dans sa section */
+}
+
+/* --- LA FAMEUSE LIGNE CENTRALE --- */
+.timeline::after {
+  /* OBLIGATOIRE : Crée l'élément fantôme. Même vide, il doit être là. */
+  content: "";
+  /* Position absolue par rapport à .timeline (grâce au position: relative plus haut) */
+  position: absolute;
+  width: 2px; /* L'épaisseur de notre ligne */
+  background-color: #00ab67; /* Couleur gris clair de la ligne */
+  /* On étire la ligne de tout en haut jusqu'à tout en bas du conteneur .timeline */
+  top: 0;
+  bottom: 0;
+  /* On place la ligne exactement au milieu (50% depuis la gauche) */
+  left: 50%;
+  /* ASTUCE DE CENTRAGE : Comme la ligne fait 2px de large, si on la met à 50%, 
+     elle penche d'1px vers la droite. On la recule donc de 1px vers la gauche (-1px) 
+     pour qu'elle soit pile au centre. */
+  margin-left: -1px;
+}
+
+/*
+   LES BLOCS D'INFORMATIONS (GAUCHE/DROITE)
+   */
+.timeline-item {
+  /* 10px en haut/bas, 40px à gauche/droite pour écarter le texte de la ligne centrale */
+  padding: 10px 40px;
+  /* Nécessaire pour positionner les petits ronds (points) par rapport à CE bloc précis */
+  position: relative;
+  background-color: inherit;
+  /* Chaque bloc prend exactement la moitié de l'espace total */
+  width: 50%;
+  /* Inclut le padding dans le calcul des 50% pour éviter que ça déborde */
+  box-sizing: border-box;
+}
+
+/* Les blocs de gauche restent à leur place naturelle (à gauche) */
+.timeline-item.left {
+  left: 0;
+}
+
+/* Les blocs de droite sont décalés de 50% vers la droite */
+.timeline-item.right {
+  left: 50%;
+}
+
+/*
+   LES POINTS SUR LA LIGNE (CERCLES)
+   */
+.timeline-dot {
+  /* Positionnement libre par rapport à leur conteneur parent (.timeline-item) */
+  position: absolute;
+  /* Dimensions du point (cercle blanc central) */
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  /* Épaisseur et style de la bordure colorée */
+  border: 4px solid;
+  /* Transforme le carré de base en cercle parfait */
+  border-radius: 50%;
+  /* On descend le point à la moitié de la hauteur de son bloc parent */
+  top: 50%;
+  /* ASTUCE DE CENTRAGE VERTICAL : Remonte le point de la moitié de sa propre hauteur 
+     pour qu'il soit parfaitement aligné au milieu du bloc, peu importe sa taille. */
+  transform: translateY(-50%);
+  /* Force les points à s'afficher au-dessus de la ligne grise (qui a un z-index naturel plus bas) */
+  z-index: 1;
+}
+
+/* Placement mathématique du point pour les éléments de GAUCHE */
+.timeline-item.left .timeline-dot {
+  /* Pourquoi -12px ? 
+     Le point fait 16px de large + 8px de bordure totale (4px gauche + 4px droite) = 24px.
+     Pour qu'il soit à cheval sur la ligne centrale, on le sort de la boîte vers la droite (right)
+     de la moitié de sa largeur : 24 / 2 = 12px. */
+  right: -12px;
+}
+
+/* Placement mathématique du point pour les éléments de DROITE */
+.timeline-item.right .timeline-dot {
+  /* Même logique, mais on sort le point vers la gauche (left) pour chevaucher la ligne centrale */
+  left: -12px;
+}
+
+/* Variables de couleurs pour les bordures des ronds */
+
+.timeline-dot.red,
+.timeline-dot.blue {
+  border-color: #00ab67;
+}
+
+/*
+   5. LE DESIGN DES CARTES (LE CONTENU)
+   */
+.timeline-content {
+  /* Espace intérieur de la carte */
+  margin: 20px 30px;
+  position: relative; /* Prépare le terrain si on veut ajouter des choses en absolu dedans plus tard */
+  /* Arrondit très légèrement les angles de la carte */
+}
+/* .left {
+  max-width: 300px;
+  max-height: 200px;
+} */
+/* .left .timeline-content {
+  margin-right: 10%;
+} */
+/* Style de l'année (Titre H3) */
+.timeline-content h3 {
+  /* Supprime la marge haute par défaut, laisse 5px en bas */
+  color: #00ab67;
+  margin: 0 0 5px 0;
+
+  font-size: 1.1rem;
+}
+
+/* Style du texte (Paragraphe) */
+.timeline-content p {
+  /* Supprime les marges par défaut pour un rendu net */
+  margin: 0;
+  /* Gris plus clair pour contraster avec le titre */
+  color: #fff;
+  /* Taille de police légèrement plus petite */
+  font-size: 0.9rem;
+}
