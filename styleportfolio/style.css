@@ -34,6 +34,7 @@ body {
 a {
   text-decoration: none;
   color: #ffffff;
+  cursor: pointer;
 }
 header {
   display: flex;
@@ -471,8 +472,32 @@ footer {
     align-items: stretch;
     gap: 10px;
   }
+  form {
+    width: 100%;
+  }
   .textcontact,
   .formulaire {
     min-width: 100%;
   }
+}
+
+/* barre de progression */
+.progression {
+  height: 5px;
+  background: #00ab67;
+  background: linear-gradient(
+    270deg,
+    rgba(0, 171, 103, 1) 0%,
+    rgba(15, 15, 15, 1) 85%
+  );
+  border-radius: 5px;
+}
+.p40 {
+  max-width: 40%;
+}
+.p80 {
+  max-width: 80%;
+}
+.p60 {
+  max-width: 60%;
 }

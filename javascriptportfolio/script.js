@@ -78,7 +78,7 @@ gsap.from(selection[0].chars, {
   stagger: 1,
   opacity: 0,
   ease: "power3.out",
-  duration: 1,
+  duration: 5,
   scrollTrigger: {
     trigger: ".text-reveal",
     start: "top 70%",
@@ -125,14 +125,14 @@ linkmenu.forEach((element) => {
     entrer.classList.toggle("none");
   });
 });
-
+const titlereveal = document.querySelector(".title-reveal");
 const text = "Je Suis Developper Front-End";
 let i = 0;
 function typeWriter() {
   if (i < text.length) {
-    document.querySelector(".title-reveal").textContent += text[i];
+    titlereveal.textContent += text[i];
     i++;
-    setTimeout(typeWriter, 150);
+    setTimeout(typeWriter, 200);
   }
 }
 typeWriter();
