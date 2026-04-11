@@ -36,6 +36,9 @@ a {
   color: #ffffff;
   cursor: pointer;
 }
+b {
+  color: #6e6666;
+}
 header {
   display: flex;
   justify-content: space-between;
